@@ -2,6 +2,7 @@ const fs = require('fs');
 const pool = require('../lib/utils/pool');
 const request = require('supertest');
 const app = require('../lib/app');
+const UserService = require('../lib/services/UserService');
 
 describe('chatable-server routes', () => {
 
@@ -38,4 +39,27 @@ describe('chatable-server routes', () => {
       name: 'david',
       email: 'test@test.com' });
   });
+
+  it('should verify that a user is logged in', async() => {
+    const agent = request.agent(app);
+    const user = await UserService.insert({
+      name: 'david',
+      email: 'test@test.com',
+      password: 'test',
+    });
+    await agent
+      .post('/api/v1/auth/login')
+      .send({
+        email: 'test@test.com',
+        password: 'test',
+
+      });
+    const res = await agent
+      .get('/api/v1/auth/verify');
+    expect(res.body).toEqual({
+      id: user.id,
+      email: 'test@test.com',
+    });
+  });
+
 });
