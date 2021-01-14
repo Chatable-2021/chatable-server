@@ -5,7 +5,7 @@ const app = require('../lib/app');
 
 describe('chatable-server routes', () => {
 
-  beforeEach(() => {
+  beforeAll(() => {
     return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
   });
 
@@ -22,7 +22,6 @@ describe('chatable-server routes', () => {
           id: expect.any(String),
           name: 'david',
           email: 'test@test.com',
-          password: 'test'
         });
       });
   });
@@ -30,7 +29,7 @@ describe('chatable-server routes', () => {
   it('should login a user via POST', async() => {
     const response = await request(app)
       .post('/api/v1/auth/login')
-      .send({ name: 'david',
+      .send({ 
         email: 'test@test.com',
         password: 'test' });
      
