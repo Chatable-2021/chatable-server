@@ -5,13 +5,13 @@ const app = require('../lib/app');
 
 describe('chatable-server routes', () => {
 
-  // beforeEach(() => {
-  //   return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
-  // });
+  beforeEach(() => {
+    return pool.query(fs.readFileSync('./sql/setup.sql', 'utf-8'));
+  });
 
-  // afterAll(() => {
-  //   return pool.end();
-  // });
+  afterAll(() => {
+    return pool.end();
+  });
 
   it('should signup a user via POST', async() => {
     return await request(app)
