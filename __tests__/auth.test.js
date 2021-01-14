@@ -35,6 +35,7 @@ describe('chatable-server routes', () => {
         password: 'test' });
      
     expect(response.body).toEqual({
+      id: expect.any(String),
       name: 'david',
       email: 'test@test.com' });
   });
