@@ -26,4 +26,16 @@ describe('chatable-server routes', () => {
         });
       });
   });
+
+  it('should login a user via POST', async() => {
+    const response = await request(app)
+      .post('/api/v1/auth/login')
+      .send({ name: 'david',
+        email: 'test@test.com',
+        password: 'test' });
+     
+    expect(response.body).toEqual({
+      name: 'david',
+      email: 'test@test.com' });
+  });
 });
