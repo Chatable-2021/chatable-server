@@ -42,7 +42,7 @@ describe('chatable-server routes', () => {
 
   it('should verify that a user is logged in', async() => {
     const agent = request.agent(app);
-    const user = await UserService.insert({
+    const user = await UserService.create({
       name: 'david',
       email: 'test@test.com',
       password: 'test',
