@@ -31,5 +31,5 @@
 #### Express
 #### Git
 
-#### Copyright (c) 2020 **_David Butler_****_Ethan Pierce_****_Justin Martin_**
+#### Copyright (c) 2020 **_David Butler_** **_Ethan Pierce_** **_Justin Martin_**
 #### The software is licensed under the MIT license [Click here](LICENSE.md)
