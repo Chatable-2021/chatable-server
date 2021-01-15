@@ -2,12 +2,12 @@
   "name": "chatable-server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
     "test:watch": "npm run test -- --watch",
-    "start": "node -r dotenv/config server.js",
-    "start:watch": "nodemon -r dotenv/config server.js"
+    "start": "nodemon index.js",
+    "start:watch": "nodemon -r dotenv/config index.js"
   },
   "jest": {
     "testEnvironment": "node"
