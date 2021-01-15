@@ -6,3 +6,10 @@ CREATE TABLE users (
   email TEXT UNIQUE NOT NULL,
   password_hash TEXT NOT NULL
 );
+
+CREATE TABLE messages (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  chat_room_id INTEGER NOT NULL,
+  user_id INTEGER UNIQUE NOT NULL,
+  message_text TEXT NOT NULL
+);
