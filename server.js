@@ -12,6 +12,14 @@ server.listen(PORT, () => {
   console.log(`Started on ${PORT}`);
 })
 
+io.on('connection', (socket) => {
+  console.log('we have a new connection!');
+
+  socket.on('disconnect', () => {
+    console.log('user has left!');
+  })
+})
+
 // app.listen(PORT, () => {
 //   // eslint-disable-next-line no-console
 //   console.log(`Started on ${PORT}`);
