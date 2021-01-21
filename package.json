@@ -7,7 +7,11 @@
     "test": "jest --verbose --runInBand --testLocationInResults --setupFiles dotenv/config",
     "test:watch": "npm run test -- --watch",
     "start": "nodemon server.js",
-    "start:watch": "nodemon -r dotenv/config server.js"
+    "start:watch": "nodemon -r dotenv/config server.js",
+    "create-tables": "node sqlInit.js",
+    "setup-db": "npm run create-tables",
+    "setup-db:prod": "heroku run npm run setup-db",
+    "setup-heroku": "heroku addons:create heroku-postgresql:hobby-dev && heroku config:set PGSSLMODE=require && heroku config:get DATABASE_URL"
   },
   "jest": {
     "testEnvironment": "node"
