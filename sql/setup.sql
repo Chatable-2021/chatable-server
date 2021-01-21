@@ -19,6 +19,7 @@ CREATE TABLE messages (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   chat_room_id BIGINT REFERENCES chatrooms(id) NOT NULL,
   user_id BIGINT REFERENCES users(id) NOT NULL,
+  user_name TEXT NOT NULL,
   message_text TEXT NOT NULL
 );
 
